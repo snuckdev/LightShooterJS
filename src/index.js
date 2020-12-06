@@ -5,12 +5,17 @@ const fs = require('fs');
 const delay = require('delay');
 const download = require('image-downloader');
 const inquirer = require('inquirer');
+const { setTerminalTitle } = require('./util/setTerminalTitle');
 
 const urlPrefix = 'https://prnt.sc/';
 
 const headers = {
   'User-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0',
 };
+
+let checked = 0;
+let success = 0;
+let notAvailable = 0;
 
 console.clear();
 
@@ -46,8 +51,16 @@ function saveImage(url) {
     const image = $('#screenshot-image').attr('src');
 
     download.image({ url: image, dest: './images',  }).then(({ filename }) => {
-      console.log(chalk.green('[ + ] Saved to ' + filename))
+      checked++;
+      success++;
+      setTerminalTitle(`Checked: ${checked} | Success: ${success} | Not available: ${notAvailable}`);
+
+      console.log(chalk.green('[ + ] Saved to ' + filename));
     }).catch(() => {
+      checked++;
+      notAvailable++;
+      setTerminalTitle(`Checked: ${checked} | Success: ${success} | Not available: ${notAvailable}`);
+
       console.log(chalk.red(`[ - ] Screenshot ${url.split('/').pop()} doesn't exists.`));
     });
 
