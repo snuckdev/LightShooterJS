@@ -41,9 +41,10 @@ function saveImage(url) {
     const image = $('#screenshot-image').attr('src');
 
     download.image({ url: image, dest: './images',  }).then(({ filename }) => {
-      console.log(chalk.green('[ + ] Saved image to ' + filename))
+      console.log(chalk.green('[ + ] Saved to ' + filename))
     }).catch(() => {
-      console.log(chalk.red('[ - ] The screenshot was removed or image does not exists.'));
+      const id = url.split(/[\s/]+/);
+      console.log(chalk.red(`[ - ] Screenshot ${id[id.length - 1]} doesn't exists.`));
     });
 
   }).catch((err) => {
