@@ -50,6 +50,7 @@ function saveImage(url) {
     if(err) {
       if(err.response.status === 403) {
         console.log(chalk.red('[ - ] Cloudflare blocked your IP, use a VPN. Proxies are not supported yet.'));
+        process.exit();
       }
     }
   });
@@ -57,7 +58,7 @@ function saveImage(url) {
 
 function generateRandomId(length) {
   var result           = '';
-  var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var charactersLength = characters.length;
   for ( var i = 0; i < length; i++ ) {
      result += characters.charAt(Math.floor(Math.random() * charactersLength));
