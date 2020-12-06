@@ -55,7 +55,7 @@ function saveImage(url) {
       success++;
       setTerminalTitle(`Checked: ${checked} | Success: ${success} | Not available: ${notAvailable}`);
 
-      console.log(chalk.green('[ + ] Saved to ' + filename));
+      console.log(chalk.green(`[ + ] Saved to ${filename}`));
     }).catch(() => {
       checked++;
       notAvailable++;
@@ -77,10 +77,10 @@ function saveImage(url) {
 }
 
 function generateRandomId(length) {
-  var result           = '';
-  var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
+  let result = '';
+  const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
      result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
