@@ -78,13 +78,17 @@ async function downloadRandomImages(images) {
 inquirer.prompt([
   {
     name: 'images_length',
-    type: 'input',
+    type: 'number',
     message: 'How much images do you want to download?',
   },
 ]).then((answer) => {
-  const imagesLength = Number(answer.images_length);
+  if(!answer.images_length) {
+    console.log(chalk.red('Please enter a valid number'));
+  } else {
+    const imagesLength = Number(answer.images_length);
 
-  console.log(chalk.green(`Downloading ${imagesLength} images from PrintScreen's website.\n\n`));
+    console.log(chalk.green(`Downloading ${imagesLength} images from PrintScreen's website.\n\n`));
 
-  downloadRandomImages(imagesLength);
+    downloadRandomImages(imagesLength);
+  }
 });
