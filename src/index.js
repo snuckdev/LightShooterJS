@@ -35,9 +35,6 @@ if(!fs.existsSync('./images')) {
 
 function saveImage(url) {
 
-  const fileName = url.split('/')[1];
-  let data;
-
   axios.get(url, { headers, timeout: 3000, }).then((response) => {
 
     const $ = cheerio.load(response.data);
@@ -52,7 +49,7 @@ function saveImage(url) {
   }).catch((err) => {
     if(err) {
       if(err.response.status === 403) {
-        console.log(chalk.red('[ - ] Cloudflare blocked your IP, use a VPN.'));
+        console.log(chalk.red('[ - ] Cloudflare blocked your IP, use a VPN. Proxies are not supported yet.'));
       }
     }
   });
