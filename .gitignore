@@ -117,3 +117,6 @@ dist
 
 # images folder
 images/
+
+# .vscode folder
+.vscode/
