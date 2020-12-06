@@ -14,7 +14,9 @@ const headers = {
 
 console.clear();
 
-console.log(chalk.green(`
+function printSlug() {
+
+  console.log(chalk.green(`
 
 
 ██████╗ ██████╗ ███╗   ██╗████████╗███████╗ ██████╗     ██████╗██████╗  █████╗ ██╗    ██╗██╗     ███████╗██████╗          ██╗███████╗
@@ -25,7 +27,10 @@ console.log(chalk.green(`
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝ ╚═════╝     ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝     ╚════╝ ╚══════╝
                                                                                                             by Josesilveiraa#6586
 
-`));
+  `));
+}
+
+printSlug();
 
 if(!fs.existsSync('./images')) {
   fs.mkdir('./images', (err) => {
@@ -49,6 +54,8 @@ function saveImage(url) {
   }).catch((err) => {
     if(err) {
       if(err.response.status === 403) {
+        console.clear();
+        printSlug();
         console.log(chalk.red('[ - ] Cloudflare blocked your IP, use a VPN. Proxies are not supported yet.'));
         process.exit();
       }
@@ -87,6 +94,8 @@ inquirer.prompt([
   } else {
     const imagesLength = Number(answer.images_length);
 
+    console.clear();
+    printSlug();
     console.log(chalk.green(`Downloading ${imagesLength} images from PrintScreen's website.\n\n`));
 
     downloadRandomImages(imagesLength);
