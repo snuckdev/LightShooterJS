@@ -96,7 +96,7 @@ inquirer.prompt([
 
     console.clear();
     printSlug();
-    console.log(chalk.green(`Downloading ${imagesLength} images from PrintScreen's website.\n\n`));
+    console.log(chalk.green(`Downloading ${imagesLength} images from https://prnt.sc\n\n`));
 
     downloadRandomImages(imagesLength);
   }
