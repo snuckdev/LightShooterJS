@@ -1,0 +1,14 @@
+{
+  "name": "printscreen-crawler",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "chalk": "^4.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "delay": "^4.4.0",
+    "image-downloader": "^4.0.1",
+    "inquirer": "^7.3.3"
+  }
+}
