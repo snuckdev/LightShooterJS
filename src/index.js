@@ -43,8 +43,7 @@ function saveImage(url) {
     download.image({ url: image, dest: './images',  }).then(({ filename }) => {
       console.log(chalk.green('[ + ] Saved to ' + filename))
     }).catch(() => {
-      const id = url.split(/[\s/]+/);
-      console.log(chalk.red(`[ - ] Screenshot ${id[id.length - 1]} doesn't exists.`));
+      console.log(chalk.red(`[ - ] Screenshot ${url.split('/').pop()} doesn't exists.`));
     });
 
   }).catch((err) => {
