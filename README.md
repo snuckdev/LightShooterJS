@@ -1,3 +1,6 @@
+<p align="center"><img src="./src/assets/logo.png"></p>
+
+
 ## 📷 LightShooterJS
 This program is a very basic project of web crawling.
 
