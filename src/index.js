@@ -10,7 +10,7 @@ const { setTerminalTitle } = require('./util/setTerminalTitle');
 const urlPrefix = 'https://prnt.sc/';
 
 const headers = {
-  'User-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0',
+  'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
 };
 
 let checked = 0;
