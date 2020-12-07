@@ -55,7 +55,7 @@ function saveImage(url) {
       success++;
       setTerminalTitle(`Checked: ${checked} | Success: ${success} | Not available: ${notAvailable}`);
 
-      console.log(chalk.green(`[ + ] Saved to ${filename}`));
+      console.log(chalk.green(`[ + ] Screenshot ${url.split('/').pop()} saved to ${filename}`));
     }).catch(() => {
       checked++;
       notAvailable++;
