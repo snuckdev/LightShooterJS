@@ -50,8 +50,6 @@ function saveImage(url) {
     const $ = cheerio.load(response.data);
     const image = $('#screenshot-image').attr('src');
 
-    console.log(`Downloading screenshot ${url.split('/').pop()}...`);
-
     download.image({ url: image, dest: './images',  }).then(({ filename }) => {
       checked++;
       success++;
@@ -105,7 +103,7 @@ inquirer.prompt([
   },
 ]).then((answer) => {
   if(!answer.images_length) {
-    console.log(chalk.red('Please enter a valid number'));
+    console.log(chalk.red('Please enter a valid number.'));
   } else {
     const imagesLength = Number(answer.images_length);
 
