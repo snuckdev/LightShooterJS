@@ -61,7 +61,7 @@ function saveImage(url) {
       notAvailable++;
       setTerminalTitle(`Checked: ${checked} | Success: ${success} | Not available: ${notAvailable}`);
 
-      console.log(chalk.red(`[ - ] Screenshot ${url.split('/').pop()} doesn't exists.`));
+      console.log(chalk.red(`[ - ] Screenshot with the id ${url.split('/').pop()} doesn't exists.`));
     });
 
   }).catch((err) => {
