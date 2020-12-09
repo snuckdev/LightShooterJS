@@ -50,6 +50,8 @@ function saveImage(url) {
     const $ = cheerio.load(response.data);
     const image = $('#screenshot-image').attr('src');
 
+    console.log(`Downloading screenshot ${url.split('/').pop()}...`);
+
     download.image({ url: image, dest: './images',  }).then(({ filename }) => {
       checked++;
       success++;
