@@ -37,9 +37,9 @@ function printSlug() {
 
 printSlug();
 
-if(!fs.existsSync('./images')) {
+if (!fs.existsSync('./images')) {
   fs.mkdir('./images', (err) => {
-    if(err) throw err;
+    if (err) throw err;
   });
 }
 
@@ -50,7 +50,7 @@ function saveImage(url) {
     const $ = cheerio.load(response.data);
     const image = $('#screenshot-image').attr('src');
 
-    download.image({ url: image, dest: './images',  }).then(({ filename }) => {
+    download.image({ url: image, dest: './images', }).then(({ filename }) => {
       checked++;
       success++;
       setTerminalTitle(`Checked: ${checked} | Success: ${success} | Not available: ${notAvailable}`);
@@ -65,8 +65,8 @@ function saveImage(url) {
     });
 
   }).catch((err) => {
-    if(err) {
-      if(err.response.status === 403) {
+    if (err) {
+      if (err.response.status === 403) {
         console.clear();
         printSlug();
         console.log(chalk.red('[ - ] Cloudflare blocked your IP, use a VPN. Proxies are not supported yet.'));
@@ -81,14 +81,14 @@ function generateRandomId(length) {
   const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
-     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
 }
 
 async function downloadRandomImages(images) {
 
-  for(let i = 0; i < images; i++) {
+  for (let i = 0; i < images; i++) {
     saveImage(`${urlPrefix}${generateRandomId(6)}`);
     await delay(500);
   }
@@ -102,7 +102,7 @@ inquirer.prompt([
     message: 'How much images do you want to download?',
   },
 ]).then((answer) => {
-  if(!answer.images_length) {
+  if (!answer.images_length) {
     console.log(chalk.red('Please enter a valid number.'));
   } else {
     const imagesLength = Number(answer.images_length);
