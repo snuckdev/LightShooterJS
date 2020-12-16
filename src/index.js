@@ -99,6 +99,7 @@ function saveImage(url) {
     })
     .catch((err) => {
       if (err) {
+        throw err;
         if (err.response.status === 403) {
           console.clear();
           printSlug();
