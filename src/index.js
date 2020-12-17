@@ -110,7 +110,6 @@ function saveImage(url) {
           process.exit();
         }
       }
-      throw err;
     });
 }
 
@@ -127,7 +126,7 @@ function generateRandomId(length) {
 async function downloadRandomImages(images) {
   for (let i = 0; i < images; i++) {
     saveImage(`${urlPrefix}/${generateRandomId(6)}`);
-    await delay(500);
+    await delay(600);
   }
 }
 
